@@ -11,6 +11,10 @@ steps:
     packagesToPack: 'src/SoapCore'
     configuration: 'Release'
     packDirectory: 'nupkg'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '1'
+    patchVersion: '1'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'push'
