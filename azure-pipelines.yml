@@ -1,0 +1,18 @@
+name: Custom Pipeline for SoapCore fix
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: 'src/SoapCore'
+    configuration: 'Release'
+    packDirectory: 'nupkg'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: 'nupkg/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '267ca2fe-8c0f-4218-94c8-93c5f3fbcb5d'
