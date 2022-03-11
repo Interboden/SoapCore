@@ -4,6 +4,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
+    projects: 'src/SoapCore'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
